@@ -3,7 +3,6 @@ const { Client } = require('discord.js');
 const client = new Client({ intents: 983 });
 const { REST } = require('@discordjs/rest');
 const { Routes } = require("discord-api-types/v10");
-const db = require("mongoose");
 
 const {token} = require("./ayarlar.json")
 global.client = client;
@@ -44,7 +43,7 @@ fs.readdir("./events/", (_err, files) => {
 client.on("ready", async () => {
 
     console.log("Bot Hizmete Hazır!");
-    client.user.setActivity("RabeL 💖 Gweep Creative", { type: "WATCHING" });
+    client.user.setActivity("discord.gg/rabel 💖 Gweep Creative", { type: "WATCHING" });
     const rest = new REST({ version: "10" }).setToken(token);
     try {
         await rest.put(Routes.applicationCommands(client.user.id), {
